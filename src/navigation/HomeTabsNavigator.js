@@ -3,7 +3,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 // Screens
 import Map from '../screens/Home/Map';
 import Stats from '../screens/Home/Stats';
-import Awareness from '../screens/Home/Awareness';
+import AwarenessTabsNavigator from './AwarenessTabsNavigator';
+// import Awareness from '../screens/Home/Awareness';
 import Profile from '../screens/Home/Profile';
 
 const {Navigator, Screen} = createBottomTabNavigator();
@@ -30,7 +31,7 @@ const HomeTabsNavigator = () => {
         }}
       />
       <Screen name="Stats" component={Stats} />
-      <Screen name="Awareness" component={Awareness} />
+      <Screen name="Awareness" component={AwarenessTabsNavigator} />
       <Screen name="Profile" component={Profile} />
     </Navigator>
   );
