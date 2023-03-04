@@ -4,4 +4,6 @@ export const colors = {
   secondary: '#567189',
   light: '#DDDDDD',
   white: '#FFFFFF',
+  links: '#2F58CD',
+  accent: 'rgba(245, 80, 80, 0.3)',
 };

@@ -2,24 +2,28 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 // Screens
 import Map from '../screens/Home/Map';
-import Stats from '../screens/Home/Stats';
+import StatsStackNavigator from './StatsStackNavigator';
 import AwarenessTabsNavigator from './AwarenessTabsNavigator';
 import ProfileStackNavigator from './ProfileStackNavigator';
+import {colors} from '../utils/Constants';
 // import Awareness from '../screens/Home/Awareness';
 
 const {Navigator, Screen} = createBottomTabNavigator();
-
 const HomeTabsNavigator = () => {
   return (
     <Navigator
-      initialRouteName="Profile"
+      initialRouteName="Stats"
       screenOptions={{
         headerShown: false,
-        tabBarIconStyle: {display: 'none'},
-        tabBarLabelPosition: 'beside-icon',
         tabBarLabelStyle: {
-          fontSize: 14,
+          fontSize: 16,
+          textAlign: 'center',
+          marginBottom: 15,
         },
+        tabBarIconStyle: {display: 'none'},
+
+        tabBarActiveTintColor: colors.white,
+        tabBarActiveBackgroundColor: colors.primary,
       }}>
       <Screen
         name="Map"
@@ -30,7 +34,7 @@ const HomeTabsNavigator = () => {
           },
         }}
       />
-      <Screen name="Stats" component={Stats} />
+      <Screen name="Stats" component={StatsStackNavigator} />
       <Screen name="Awareness" component={AwarenessTabsNavigator} />
       <Screen name="Profile" component={ProfileStackNavigator} />
     </Navigator>

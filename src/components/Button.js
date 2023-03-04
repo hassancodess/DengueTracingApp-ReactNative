@@ -2,10 +2,18 @@ import {StyleSheet, Text, Pressable} from 'react-native';
 import React from 'react';
 import {colors} from '../utils/Constants';
 
-const Button = ({title}) => {
+const Button = ({title, onPress}) => {
   return (
-    <Pressable style={styles.buttonContainer}>
+    <Pressable style={styles.buttonContainer} onPress={onPress}>
       <Text style={styles.buttonText}>{title}</Text>
+    </Pressable>
+  );
+};
+
+export const SmallButton = ({title, onPress}) => {
+  return (
+    <Pressable style={styles.smallButtonContainer} onPress={onPress}>
+      <Text style={styles.smallButtonText}>{title}</Text>
     </Pressable>
   );
 };
@@ -23,5 +31,17 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     paddingVertical: 15,
     borderRadius: 5,
+  },
+  smallButtonContainer: {
+    backgroundColor: colors.primary,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+  },
+  smallButtonText: {
+    fontSize: 14,
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: '700',
   },
 });

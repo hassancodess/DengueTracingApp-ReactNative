@@ -1,16 +1,18 @@
 import React, {useState} from 'react';
-import {StyleSheet, Text, View, Image} from 'react-native';
+import {StyleSheet, Text, View, Image, TextInput} from 'react-native';
 import {colors} from '../../utils/Constants';
 import Avatar from '../../assets/avatar.jpg';
 import {IconButton, Modal, Portal, Provider} from 'react-native-paper';
 import Input from '../../components/Input';
-import Button from '../../components/Button';
+import Button, {SmallButton} from '../../components/Button';
 import {useNavigation} from '@react-navigation/native';
 import {Switch} from 'react-native-paper';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Slider from '@react-native-community/slider';
 
 const AdminProfile = () => {
   const navigation = useNavigation();
+  const [sliderValue, setSliderValue] = useState(0);
   const [isSwitchOn, setIsSwitchOn] = useState(false);
   const [isCamera, setIsCamera] = useState(false);
 
@@ -33,7 +35,7 @@ const AdminProfile = () => {
             <IconButton
               icon="cog"
               mode="contained"
-              iconColor={colors.dark}
+              iconColor={colors.primary}
               style={styles.settingsButton}
               size={20}
               onPress={showModal}
@@ -165,11 +167,39 @@ const AdminProfile = () => {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 marginVertical: 10,
+                marginHorizontal: 20,
               }}>
-              <Text>0 KM</Text>
-              <Text>10 KM</Text>
+              <Text style={styles.darkText}>0 KM</Text>
+              <Text style={styles.darkText}>10 KM</Text>
             </View>
             {/* Slider */}
+            <Slider
+              value={sliderValue}
+              onValueChange={value => setSliderValue(value)}
+              // style={{width: 200, height: 40}}
+              minimumValue={0}
+              maximumValue={10}
+              minimumTrackTintColor={colors.primary}
+              maximumTrackTintColor={colors.secondary}
+            />
+            {/* Strip */}
+            <View style={styles.stripContainer}>
+              <Text style={styles.stripText}>Threshold for Dengue cases</Text>
+            </View>
+            {/* Input */}
+            <TextInput
+              style={{borderWidth: 1, marginTop: 15, height: 45}}
+              placeholder="100-10000"
+              placeholderTextColor={colors.dark}
+            />
+            {/* Buttons */}
+            <View style={styles.buttonsContainer}>
+              <SmallButton
+                title="View Health Inspector"
+                onPress={() => navigation.navigate('ViewHealthInspector')}
+              />
+              <SmallButton title="Save" />
+            </View>
           </Modal>
         </Portal>
       </View>
@@ -182,7 +212,7 @@ export default AdminProfile;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: 10,
+    paddingVertical: 20,
     paddingHorizontal: 50,
   },
   flexContainer: {
@@ -209,7 +239,8 @@ const styles = StyleSheet.create({
   },
   settingsButton: {
     position: 'absolute',
-    right: -170,
+    right: -120,
+    backgroundColor: colors.light,
   },
   textContainer: {
     flexDirection: 'row',
@@ -219,8 +250,11 @@ const styles = StyleSheet.create({
   profileName: {
     fontSize: 16,
     marginHorizontal: 20,
+    color: colors.dark,
   },
-  emailText: {},
+  emailText: {
+    color: colors.dark,
+  },
 
   chipContainer: {
     paddingHorizontal: 10,
@@ -243,7 +277,8 @@ const styles = StyleSheet.create({
   },
   dengueText: {
     fontSize: 16,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
+    color: colors.dark,
   },
   modalContainer: {
     height: 80,
@@ -266,13 +301,17 @@ const styles = StyleSheet.create({
   modalRowText: {},
   containerStyle: {
     backgroundColor: 'white',
-    padding: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 15,
     margin: 20,
   },
   closeButton: {
     alignSelf: 'flex-end',
+    marginBottom: 15,
+    backgroundColor: colors.white,
   },
   stripContainer: {
+    marginTop: 10,
     backgroundColor: colors.primary,
     paddingHorizontal: 20,
     paddingVertical: 5,
@@ -282,5 +321,13 @@ const styles = StyleSheet.create({
     fontSize: 15,
     textTransform: 'uppercase',
     color: colors.light,
+  },
+  buttonsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 20,
+  },
+  darkText: {
+    color: colors.dark,
   },
 });

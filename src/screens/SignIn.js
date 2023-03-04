@@ -42,7 +42,10 @@ const SignIn = () => {
 
           {/* Sign In Button */}
           <View style={styles.buttonContainer}>
-            <Button title="Sign in" />
+            <Button
+              title="Sign in"
+              onPress={() => navigation.navigate('Home')}
+            />
           </View>
           {/* Strip */}
           <View style={styles.bottomStripContainer}>
@@ -121,5 +124,8 @@ const styles = StyleSheet.create({
   signUpText: {
     color: colors.primary,
     fontWeight: 'bold',
+  },
+  forgotPasswordText: {
+    color: colors.dark,
   },
 });

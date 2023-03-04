@@ -10,7 +10,11 @@ const Input = ({title, placeholder, variant, icon, secure}) => {
         {/* Head */}
         <Text style={styles.inputHeading}>{title}</Text>
         {/* Input */}
-        <TextInput style={styles.input} placeholder={placeholder} />
+        <TextInput
+          style={styles.input}
+          placeholder={placeholder}
+          placeholderTextColor={colors.dark}
+        />
       </View>
     );
   } else if (variant == 'icon') {
@@ -24,6 +28,7 @@ const Input = ({title, placeholder, variant, icon, secure}) => {
             style={styles.input}
             secureTextEntry={secure ? true : false}
             placeholder={placeholder}
+            placeholderTextColor={colors.dark}
           />
           <MaterialIcons
             name={icon}

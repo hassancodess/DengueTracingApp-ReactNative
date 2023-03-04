@@ -72,7 +72,7 @@ const Signup = () => {
       </View>
       {/* Bottom Strip */}
       <View style={styles.bottomStripContainer}>
-        <Text>
+        <Text style={styles.lightText}>
           Have an account?{' '}
           <Text
             style={styles.primaryText}
@@ -99,6 +99,7 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   termsText: {
+    color: colors.dark,
     fontSize: 14,
   },
   primaryText: {
@@ -120,5 +121,8 @@ const styles = StyleSheet.create({
   primaryText: {
     color: colors.primary,
     fontWeight: 'bold',
+  },
+  lightText: {
+    color: colors.dark,
   },
 });

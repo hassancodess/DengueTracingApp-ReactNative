@@ -33,7 +33,7 @@ const ForgotPassword = () => {
         </View>
         {/* Bottom Strip */}
         <View style={styles.bottomStripContainer}>
-          <Text>
+          <Text style={styles.darkText}>
             Back to Login?{' '}
             <Text
               style={styles.primaryText}
@@ -94,5 +94,8 @@ const styles = StyleSheet.create({
   primaryText: {
     color: colors.primary,
     fontWeight: 'bold',
+  },
+  darkText: {
+    color: colors.dark,
   },
 });
