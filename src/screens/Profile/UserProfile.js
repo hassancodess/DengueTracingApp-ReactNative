@@ -9,7 +9,7 @@ import {useNavigation} from '@react-navigation/native';
 import {Switch} from 'react-native-paper';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-const Profile = () => {
+const UserProfile = () => {
   const navigation = useNavigation();
   const [isSwitchOn, setIsSwitchOn] = useState(false);
   const [isCamera, setIsCamera] = useState(true);
@@ -122,7 +122,7 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default UserProfile;
 
 const styles = StyleSheet.create({
   container: {

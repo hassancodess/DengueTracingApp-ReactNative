@@ -26,7 +26,7 @@ const Signup = () => {
         {/* Simple Input */}
         <Input
           title="Phone Number"
-          placeholder={'Phone umber'}
+          placeholder={'Phone Number'}
           variant="simple"
         />
         {/* Icon Input */}
