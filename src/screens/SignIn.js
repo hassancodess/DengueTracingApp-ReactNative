@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, View, Image, TextInput} from 'react-native';
 import Logo from '../assets/logo.png';
 import {colors} from '../utils/Constants';
@@ -9,6 +9,8 @@ import {useNavigation} from '@react-navigation/native';
 
 const SignIn = () => {
   const navigation = useNavigation();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   return (
     <View style={styles.container}>
       <View style={styles.flexContainer}>
@@ -31,6 +33,8 @@ const SignIn = () => {
             title="Email"
             placeholder={'example@gmail.com'}
             variant="simple"
+            value={email}
+            setValue={setEmail}
           />
           {/* Password Input */}
           <Input
@@ -38,6 +42,8 @@ const SignIn = () => {
             placeholder={'************'}
             variant="icon"
             icon="remove-red-eye"
+            value={password}
+            setValue={setPassword}
           />
 
           {/* Sign In Button */}

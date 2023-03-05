@@ -9,6 +9,12 @@ import {useNavigation} from '@react-navigation/native';
 const Signup = () => {
   const [checked, setChecked] = useState(false);
   const navigation = useNavigation();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [password, setPassword] = useState('');
+  const [repeatPassword, setRepeatPassword] = useState('');
+  const [location, setLocation] = useState('');
   return (
     <View style={styles.container}>
       {/* Title */}
@@ -16,18 +22,28 @@ const Signup = () => {
       {/* Input Container */}
       <View>
         {/* Simple Input */}
-        <Input title="Name" placeholder={'Your name'} variant="simple" />
+        <Input
+          title="Name"
+          placeholder={'Your name'}
+          variant="simple"
+          value={name}
+          setValue={setName}
+        />
         {/* Simple Input */}
         <Input
           title="Email"
           placeholder={'Your email address'}
           variant="simple"
+          value={email}
+          setValue={setEmail}
         />
         {/* Simple Input */}
         <Input
           title="Phone Number"
           placeholder={'Phone Number'}
           variant="simple"
+          value={phoneNumber}
+          setValue={setPhoneNumber}
         />
         {/* Icon Input */}
         <Input
@@ -35,6 +51,8 @@ const Signup = () => {
           placeholder={'Password'}
           variant="icon"
           icon="remove-red-eye"
+          value={password}
+          setValue={setPassword}
         />
         {/* Icon Input */}
         <Input
@@ -42,6 +60,8 @@ const Signup = () => {
           placeholder={'Repeat Password'}
           variant="icon"
           icon="remove-red-eye"
+          value={repeatPassword}
+          setValue={setRepeatPassword}
         />
         {/* Icon Input */}
         <Input
@@ -49,6 +69,8 @@ const Signup = () => {
           placeholder={'Location'}
           variant="icon"
           icon="location-pin"
+          value={location}
+          setValue={setLocation}
         />
       </View>
       {/* Terms & Conditions */}

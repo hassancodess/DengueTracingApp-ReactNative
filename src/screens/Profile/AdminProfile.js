@@ -9,6 +9,7 @@ import {useNavigation} from '@react-navigation/native';
 import {Switch} from 'react-native-paper';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Slider from '@react-native-community/slider';
+import {chooseFile, captureImage} from '../../utils/imagePicker';
 
 const AdminProfile = () => {
   const navigation = useNavigation();
@@ -21,6 +22,12 @@ const AdminProfile = () => {
   const showModal = () => setVisible(true);
   const hideModal = () => setVisible(false);
   const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [password, setPassword] = useState('');
+  const [repeatPassword, setRepeatPassword] = useState('');
+  const [location, setLocation] = useState('');
   return (
     <Provider>
       <View style={styles.container}>
@@ -60,6 +67,7 @@ const AdminProfile = () => {
                     color={colors.dark}
                     size={24}
                     style={styles.passwordIcon}
+                    onPress={() => captureImage('photo')}
                   />
                 </View>
                 <View style={styles.modalRow}>
@@ -71,6 +79,7 @@ const AdminProfile = () => {
                     color={colors.dark}
                     size={24}
                     style={styles.passwordIcon}
+                    onPress={() => chooseFile('photo')}
                   />
                 </View>
               </View>
@@ -96,18 +105,28 @@ const AdminProfile = () => {
           <Text style={styles.emailText}>johanna@gmail.com</Text>
         </View>
         {/* Simple Input */}
-        <Input title="Name" placeholder={'Your name'} variant="simple" />
+        <Input
+          title="Name"
+          placeholder={'Your name'}
+          variant="simple"
+          value={name}
+          setValue={setName}
+        />
         {/* Simple Input */}
         <Input
           title="Email"
           placeholder={'Your email address'}
           variant="simple"
+          value={email}
+          setValue={setEmail}
         />
         {/* Simple Input */}
         <Input
           title="Phone Number"
           placeholder={'Phone Number'}
           variant="simple"
+          value={phoneNumber}
+          setValue={setPhoneNumber}
         />
         {/* Icon Input */}
         <Input
@@ -115,6 +134,8 @@ const AdminProfile = () => {
           placeholder={'Password'}
           variant="icon"
           icon="remove-red-eye"
+          value={password}
+          setValue={setPassword}
         />
         {/* Icon Input */}
         <Input
@@ -122,6 +143,8 @@ const AdminProfile = () => {
           placeholder={'Repeat Password'}
           variant="icon"
           icon="remove-red-eye"
+          value={repeatPassword}
+          setValue={setRepeatPassword}
         />
         {/* Icon Input */}
         <Input
@@ -129,6 +152,8 @@ const AdminProfile = () => {
           placeholder={'Location'}
           variant="icon"
           icon="location-pin"
+          value={location}
+          setValue={setLocation}
         />
         {/* Text with Switch */}
         <View style={styles.dengueContainer}>

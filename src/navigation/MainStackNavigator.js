@@ -12,7 +12,7 @@ const MainStackNavigator = () => {
   return (
     <NavigationContainer>
       <Navigator
-        initialRouteName="Home"
+        initialRouteName="SignIn"
         screenOptions={{
           headerShown: false,
         }}>

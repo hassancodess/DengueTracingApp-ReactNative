@@ -4,11 +4,21 @@ import {colors} from '../../utils/Constants';
 import {IconButton} from 'react-native-paper';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import {useNavigation} from '@react-navigation/native';
+import {BarChart} from 'react-native-gifted-charts';
 
 const Reports = () => {
   const [date, setDate] = useState(new Date(1598051730000));
   const [show, setShow] = useState(false);
   const navigation = useNavigation();
+  const barData = [
+    {value: 400, label: 'M', frontColor: colors.primary},
+    {value: 500, label: 'T', frontColor: colors.primary},
+    {value: 700, label: 'W', frontColor: colors.primary},
+    {value: 500, label: 'T', frontColor: colors.primary},
+    {value: 800, label: 'F', frontColor: colors.primary},
+    {value: 500, label: 'S', frontColor: colors.primary},
+    {value: 100, label: 'S', frontColor: colors.primary},
+  ];
 
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate;
@@ -54,6 +64,17 @@ const Reports = () => {
         <Text>Last Month</Text>
       </View>
       {/* Graph */}
+      <View style={{marginTop: 30}}>
+        <BarChart
+          barWidth={30}
+          noOfSections={4}
+          barBorderRadius={4}
+          frontColor="lightgray"
+          data={barData}
+          yAxisThickness={0}
+          xAxisThickness={0}
+        />
+      </View>
     </View>
   );
 };

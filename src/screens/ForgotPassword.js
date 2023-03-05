@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
 import Logo from '../assets/logo.png';
 import {colors} from '../utils/Constants';
@@ -8,7 +8,7 @@ import {useNavigation} from '@react-navigation/native';
 
 const ForgotPassword = () => {
   const navigation = useNavigation();
-
+  const [email, setEmail] = useState('');
   return (
     <View style={styles.container}>
       <View style={styles.flexContainer}>
@@ -25,6 +25,8 @@ const ForgotPassword = () => {
             title="Email"
             placeholder={'Enter your email address'}
             variant="simple"
+            value={email}
+            setValue={setEmail}
           />
         </View>
         {/* Button */}

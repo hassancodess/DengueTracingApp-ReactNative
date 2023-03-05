@@ -15,6 +15,13 @@ const UserProfile = () => {
   const [isCamera, setIsCamera] = useState(true);
 
   const onToggleSwitch = () => setIsSwitchOn(!isSwitchOn);
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [password, setPassword] = useState('');
+  const [repeatPassword, setRepeatPassword] = useState('');
+  const [location, setLocation] = useState('');
   return (
     <View style={styles.container}>
       {/* Profile Section */}
@@ -71,18 +78,28 @@ const UserProfile = () => {
         <Text style={styles.emailText}>johanna@gmail.com</Text>
       </View>
       {/* Simple Input */}
-      <Input title="Name" placeholder={'Your name'} variant="simple" />
+      <Input
+        title="Name"
+        placeholder={'Your name'}
+        variant="simple"
+        value={name}
+        setValue={setName}
+      />
       {/* Simple Input */}
       <Input
         title="Email"
         placeholder={'Your email address'}
         variant="simple"
+        value={email}
+        setValue={setEmail}
       />
       {/* Simple Input */}
       <Input
         title="Phone Number"
         placeholder={'Phone Number'}
         variant="simple"
+        value={phoneNumber}
+        setValue={setPhoneNumber}
       />
       {/* Icon Input */}
       <Input
@@ -90,6 +107,8 @@ const UserProfile = () => {
         placeholder={'Password'}
         variant="icon"
         icon="remove-red-eye"
+        value={password}
+        setValue={setPassword}
       />
       {/* Icon Input */}
       <Input
@@ -97,6 +116,8 @@ const UserProfile = () => {
         placeholder={'Repeat Password'}
         variant="icon"
         icon="remove-red-eye"
+        value={repeatPassword}
+        setValue={setRepeatPassword}
       />
       {/* Icon Input */}
       <Input
@@ -104,6 +125,8 @@ const UserProfile = () => {
         placeholder={'Location'}
         variant="icon"
         icon="location-pin"
+        value={location}
+        setValue={setLocation}
       />
       {/* Text with Switch */}
       <View style={styles.dengueContainer}>

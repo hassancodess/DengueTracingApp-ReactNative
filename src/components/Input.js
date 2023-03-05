@@ -3,7 +3,15 @@ import {StyleSheet, Text, View, TextInput} from 'react-native';
 import {colors} from '../utils/Constants';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-const Input = ({title, placeholder, variant, icon, secure}) => {
+const Input = ({
+  title,
+  placeholder,
+  variant,
+  icon,
+  secure,
+  value,
+  setValue,
+}) => {
   if (variant == 'simple') {
     return (
       <View style={styles.inputContainer}>
@@ -14,6 +22,8 @@ const Input = ({title, placeholder, variant, icon, secure}) => {
           style={styles.input}
           placeholder={placeholder}
           placeholderTextColor={colors.dark}
+          value={value}
+          onChangeText={text => setValue(text)}
         />
       </View>
     );
@@ -29,6 +39,8 @@ const Input = ({title, placeholder, variant, icon, secure}) => {
             secureTextEntry={secure ? true : false}
             placeholder={placeholder}
             placeholderTextColor={colors.dark}
+            value={value}
+            onChangeText={text => setValue(text)}
           />
           <MaterialIcons
             name={icon}

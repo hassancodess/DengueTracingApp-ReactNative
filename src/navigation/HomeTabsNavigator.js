@@ -12,7 +12,7 @@ const {Navigator, Screen} = createBottomTabNavigator();
 const HomeTabsNavigator = () => {
   return (
     <Navigator
-      initialRouteName="Stats"
+      initialRouteName="Map"
       screenOptions={{
         headerShown: false,
         tabBarLabelStyle: {
