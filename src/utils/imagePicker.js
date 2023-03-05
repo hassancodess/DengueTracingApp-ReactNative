@@ -4,7 +4,7 @@
 //<uses-permission android:name="android.permission.CAMERA"/>
 //<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 import React, {useState} from 'react';
-
+import {PermissionsAndroid} from 'react-native';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 
 const requestCameraPermission = async () => {

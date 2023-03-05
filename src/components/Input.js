@@ -1,7 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {StyleSheet, Text, View, TextInput} from 'react-native';
 import {colors} from '../utils/Constants';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 const Input = ({
   title,
@@ -12,6 +11,7 @@ const Input = ({
   value,
   setValue,
 }) => {
+  const [showPassword, setShowPassword] = useState(true);
   if (variant == 'simple') {
     return (
       <View style={styles.inputContainer}>
@@ -51,6 +51,31 @@ const Input = ({
         </View>
       </View>
     );
+  } else if (variant == 'passwordIcon') {
+    return (
+      <View style={styles.inputContainer}>
+        {/* Head */}
+        <Text style={styles.inputHeading}>{title}</Text>
+        {/* Input */}
+        <View style={styles.passwordInputContainer}>
+          <TextInput
+            style={styles.input}
+            secureTextEntry={showPassword ? true : false}
+            placeholder={placeholder}
+            placeholderTextColor={colors.dark}
+            value={value}
+            onChangeText={text => setValue(text)}
+          />
+          <MaterialIcons
+            name={icon}
+            color={colors.light}
+            size={32}
+            style={styles.passwordIcon}
+            onPress={() => setShowPassword(!showPassword)}
+          />
+        </View>
+      </View>
+    );
   }
 };
 
@@ -71,6 +96,7 @@ const styles = StyleSheet.create({
     height: 40,
     fontSize: 14,
     width: '100%',
+    color: colors.dark,
   },
   passwordInputContainer: {
     flexDirection: 'row',

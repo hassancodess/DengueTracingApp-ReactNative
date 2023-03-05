@@ -40,7 +40,7 @@ const SignIn = () => {
           <Input
             title="Password"
             placeholder={'************'}
-            variant="icon"
+            variant="passwordIcon"
             icon="remove-red-eye"
             value={password}
             setValue={setPassword}

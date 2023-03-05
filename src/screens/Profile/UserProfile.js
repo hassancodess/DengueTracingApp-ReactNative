@@ -105,7 +105,7 @@ const UserProfile = () => {
       <Input
         title="Password"
         placeholder={'Password'}
-        variant="icon"
+        variant="passwordIcon"
         icon="remove-red-eye"
         value={password}
         setValue={setPassword}
@@ -114,7 +114,7 @@ const UserProfile = () => {
       <Input
         title="Repeat Password"
         placeholder={'Repeat Password'}
-        variant="icon"
+        variant="passwordIcon"
         icon="remove-red-eye"
         value={repeatPassword}
         setValue={setRepeatPassword}

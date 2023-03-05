@@ -9,7 +9,6 @@ const AddHealthInspector = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
-  const [location, setLocation] = useState('');
   return (
     <View style={styles.container}>
       {/* Title */}
@@ -40,7 +39,7 @@ const AddHealthInspector = () => {
       <Input
         title="Password"
         placeholder={'************'}
-        variant="icon"
+        variant="passwordIcon"
         icon="remove-red-eye"
         value={password}
         setValue={setPassword}
@@ -48,7 +47,7 @@ const AddHealthInspector = () => {
       <Input
         title="Repeat Password"
         placeholder={'************'}
-        variant="icon"
+        variant="passwordIcon"
         icon="remove-red-eye"
         value={repeatPassword}
         setValue={setRepeatPassword}

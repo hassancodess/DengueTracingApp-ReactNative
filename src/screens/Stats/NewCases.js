@@ -23,11 +23,11 @@ const NewCases = () => {
           <View style={styles.textContainer}>
             <Text style={styles.text}>
               {item.name}{' '}
-              <Text style={{fontWeight: '100'}}>
+              <Text style={{fontWeight: '400'}}>
                 {item.hasDengue && 'hasDengue'}
               </Text>
             </Text>
-            <Text>{item.time}</Text>
+            <Text style={styles.darkText}>{item.time}</Text>
           </View>
         </View>
       </View>
@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 15,
     marginVertical: 5,
+    borderRadius: 5,
   },
   flexContainer: {
     flexDirection: 'row',
@@ -71,4 +72,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginVertical: 10,
   },
+  darkText: {color: colors.secondary},
 });

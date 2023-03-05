@@ -9,6 +9,25 @@ import {BarChart} from 'react-native-gifted-charts';
 const Reports = () => {
   const [date, setDate] = useState(new Date(1598051730000));
   const [show, setShow] = useState(false);
+  const [active1, setActive1] = useState(true);
+  const [active2, setActive2] = useState(false);
+  const [active3, setActive3] = useState(false);
+
+  const toggleActivate = state => {
+    if (state === 'active1') {
+      setActive1(true);
+      setActive2(false);
+      setActive3(false);
+    } else if (state === 'active2') {
+      setActive1(false);
+      setActive2(true);
+      setActive3(false);
+    } else if (state === 'active3') {
+      setActive1(false);
+      setActive2(false);
+      setActive3(true);
+    }
+  };
   const navigation = useNavigation();
   const barData = [
     {value: 400, label: 'M', frontColor: colors.primary},
@@ -39,7 +58,7 @@ const Reports = () => {
         />
       </View>
       <View style={styles.dateContainer}>
-        <Text>{date.toLocaleDateString()}</Text>
+        <Text style={styles.darkText}>{date.toLocaleDateString()}</Text>
         <IconButton
           icon="clipboard-text-clock-outline"
           mode="contained"
@@ -59,9 +78,21 @@ const Reports = () => {
       )}
       {/* Strip */}
       <View style={styles.stripContainer}>
-        <Text style={styles.active}>Current Week</Text>
-        <Text>Last Week</Text>
-        <Text>Last Month</Text>
+        <Text
+          style={[styles.darkText, active1 ? styles.active : null]}
+          onPress={() => toggleActivate('active1')}>
+          Current Week
+        </Text>
+        <Text
+          style={[styles.darkText, active2 ? styles.active : null]}
+          onPress={() => toggleActivate('active2')}>
+          Last Week
+        </Text>
+        <Text
+          style={[styles.darkText, active3 ? styles.active : null]}
+          onPress={() => toggleActivate('active3')}>
+          Last Month
+        </Text>
       </View>
       {/* Graph */}
       <View style={{marginTop: 30}}>
@@ -69,10 +100,22 @@ const Reports = () => {
           barWidth={30}
           noOfSections={4}
           barBorderRadius={4}
-          frontColor="lightgray"
+          // frontColor="lightgray"
           data={barData}
           yAxisThickness={0}
           xAxisThickness={0}
+          yAxisTextStyle={{
+            color: colors.dark,
+          }}
+          xAxisLabelTextStyle={{
+            color: colors.dark,
+            fontSize: 14,
+            textAlign: 'center',
+          }}
+          color={colors.primary}
+          xAxisIndicesColor={colors.primary}
+          yAxisColor={colors.primary}
+          xAxisColor={colors.dark}
         />
       </View>
     </View>
@@ -111,5 +154,8 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     borderBottomWidth: 3,
     borderBottomColor: colors.primary,
+  },
+  darkText: {
+    color: colors.dark,
   },
 });
